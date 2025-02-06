@@ -1,0 +1,19 @@
+<div class="flex items-center gap-1 rounded-md w-24">
+  <button
+    (click)="decrease()"
+    class="px-2 py-1 bg-slate-900 text-white rounded hover:bg-gray-700 text-sm cursor-pointer">
+    −
+  </button>
+
+  <input
+    type="number"
+    [value]="value"
+    (input)="onInputChange($event)"
+    class="w-8 text-center border-none bg-transparent outline-none text-sm" />
+
+  <button
+    (click)="increase()"
+    class="px-2 py-1 bg-slate-900 text-white rounded hover:bg-gray-700 text-sm cursor-pointer">
+    +
+  </button>
+</div>

@@ -27,9 +27,14 @@
 
     <!-- Price -->
     <div class="mt-auto flex items-center justify-between">
-      <span class="text-3xl font-bold text-slate-900">
-        {{ product.price }}
+      <!-- Product Price -->
+      <span class="flex items-center">
+        <span class="text-2xl font-bold text-slate-900">{{ product.price }}</span>
+        <span class="text-sm text-slate-900 self-center ml-0.5">$</span>
       </span>
+
+      <!-- Number Picker (Now inline with Price) -->
+      <app-number-picker [value]="5" [min]="1" [max]="10" [step]="1"></app-number-picker>
     </div>
 
     <!-- Add to Cart Button -->
