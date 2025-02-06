@@ -1,0 +1,54 @@
+<div
+  class="relative flex w-full flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md transition-all duration-300 hover:shadow-lg">
+  <!-- Container for Image and Product Details -->
+  <div class="flex p-5">
+    <!-- Product Image or Placeholder -->
+    <div class="flex-shrink-0">
+      <ng-container *ngIf="product?.img && !hasImageError; else noImage">
+        <img
+          [src]="product.img"
+          (error)="hasImageError = true"
+          class="h-24 w-24 object-contain rounded-lg"
+          alt="Product image"
+          onerror="this.style.display='none'" />
+      </ng-container>
+
+      <ng-template #noImage>
+        <div class="h-24 w-24 flex items-center justify-center bg-gray-100 rounded-lg">
+          <no-image-svg></no-image-svg>
+        </div>
+      </ng-template>
+    </div>
+
+    <!-- Product Details -->
+    <div class="ml-4 flex flex-col justify-between flex-grow">
+      <!-- Name and Price -->
+      <div>
+        <!-- Product Name -->
+        <h5 class="text-xl tracking-tight text-slate-900 mb-2 line-clamp-2">
+          {{ product.name }}
+        </h5>
+
+        <!-- Price -->
+        <div class="flex items-center">
+          <span class="text-2xl font-bold text-slate-900">{{ product.price }}</span>
+          <span class="text-sm text-slate-900 self-center ml-0.5">$</span>
+        </div>
+      </div>
+
+      <!-- Actions: Number Picker & Add to Cart Button -->
+      <!-- Use flex-wrap so that the button wraps to a new line if there isn't enough space -->
+      <div class="mt-4 flex flex-wrap items-center gap-2">
+        <!-- Number Picker -->
+        <app-number-picker [value]="5" [min]="1" [max]="10" [step]="1"></app-number-picker>
+
+        <!-- Add to Cart Button -->
+        <!-- On small screens, the button takes full width (appearing below); on larger screens it floats to the right -->
+        <button
+          class="w-full sm:w-auto sm:ml-auto flex justify-center rounded-md bg-red-700 px-5 py-2.5 text-center font-medium text-white hover:bg-red-900">
+          Remove from cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

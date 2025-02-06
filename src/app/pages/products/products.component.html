@@ -1,11 +1,25 @@
-<div class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-  <ul class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-3 lg:gap-6">
-    <li *ngFor="let product of products" class="flex h-full transition-transform duration-300 hover:scale-[1.1]">
-      <div class="w-full p-2 sm:p-1.5 lg:p-3">
-        <app-product-card
-          [product]="product"
-          class="w-full h-full shadow-sm hover:shadow-md transition-all"></app-product-card>
+<section class="min-h-screen bg-gray-100 py-12 sm:py-16 lg:py-20 h-full">
+  <div class="mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-center">
+      <h1 class="text-2xl font-semibold text-gray-900">Products</h1>
+    </div>
+
+    <!-- Container with a max width of 1200px -->
+    <div class="mx-auto mt-8 md:mt-12 max-w-[1400px]">
+      <div class="bg-white shadow">
+        <div class="mx-auto px-4 sm:px-6 py-8 w-11/12">
+          <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+            <li
+              *ngFor="let product of products"
+              class="flex h-full transition-transform duration-300 hover:scale-[1.1]">
+              <div class="w-full p-3 sm:p-4 lg:p-5">
+                <app-product-card [product]="product" class="w-full h-full shadow-md hover:shadow-lg transition-all">
+                </app-product-card>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-    </li>
-  </ul>
-</div>
+    </div>
+  </div>
+</section>
